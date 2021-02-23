@@ -40,12 +40,13 @@ rules:
   - tlsoptions
   - tlsstores
   - traefikservices
+  - serverstransports
   verbs:
   - get
   - list
   - watch
-
 ---
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -57,11 +58,11 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: traefik
-  namespace: kube-system
-
+  namespace: traefik
 ---
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: traefik
-  namespace: kube-system
+  namespace: traefik
